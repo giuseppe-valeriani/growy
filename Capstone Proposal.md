@@ -8,6 +8,8 @@ Growy is an app for diligent kids that tracks their chores and progresses, and e
 
 I needed some way to encourage my kids to do their chores and be enthusiastic about it, something they would be happy to do rather than feel "forced" to do. No app I had previously used was satisfying me entirely.
 
+I also need to establish if I want a multi account system or a multi page one.
+
 ### User Profile
 
 There will be both adult and kid profiles, so the children (of an appropriate age) can tick off their on tasks and the parents can confirm it and set the task as accomplished assigning points as well as take some out for extreme situations.
