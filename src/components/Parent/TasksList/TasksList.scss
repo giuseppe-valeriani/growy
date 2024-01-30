@@ -1,0 +1,23 @@
+@use "../../../styles/partials/mixins" as *;
+
+.tasks-list {
+  padding: 1rem;
+
+  &__loading {
+    margin: 4rem;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  &__list {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @include desktop {
+      margin: 0 10%;
+    }
+  }
+}

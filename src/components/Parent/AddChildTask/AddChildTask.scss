@@ -1,0 +1,45 @@
+@use "../../../styles/partials/colors" as *;
+
+.add-child-task {
+  display: flex;
+  padding: 1rem 4rem;
+  list-style: none;
+  flex-wrap: wrap;
+
+  &__element {
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px $shadow;
+    background-color: $background;
+  }
+
+  &__selected {
+    border: 3px solid $accent;
+  }
+
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 2rem;
+  }
+
+  &__button {
+    margin-top: 4rem;
+    border-radius: 8px;
+    background-color: $accent;
+    color: $primary;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    padding: 0.5rem;
+    width: 6rem;
+    text-transform: capitalize;
+    box-shadow: 5px 5px 5px $shadow;
+    cursor: pointer;
+  }
+}

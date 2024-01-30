@@ -1,0 +1,68 @@
+@use "../../../styles/partials/colors" as *;
+
+.add-task-form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $primary;
+  border-radius: 8px;
+  background-color: $secondary;
+  width: 20rem;
+  padding: 1rem;
+  gap: 0.3rem;
+
+  &__task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__frequence {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__skill {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  &__points {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__numbers {
+    width: 3rem;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__button {
+    margin: 1rem;
+    border-radius: 8px;
+    background-color: $accent;
+    color: $primary;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    padding: 0.5rem;
+    width: 6rem;
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+
+  &__error {
+    color: $error;
+    font-weight: 700;
+  }
+}

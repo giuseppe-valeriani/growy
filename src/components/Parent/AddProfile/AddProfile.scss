@@ -1,0 +1,21 @@
+@use "../../../styles/partials/colors" as *;
+
+.add-profile {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+
+  &__button {
+    margin-top: 4rem;
+    border-radius: 8px;
+    background-color: $accent;
+    color: $primary;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    padding: 0.5rem;
+    width: 6rem;
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+}

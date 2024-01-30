@@ -1,0 +1,44 @@
+@use "../../../styles/partials/mixins" as *;
+@use "../../../styles/partials/colors" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.nav {
+  background-color: $background;
+  box-shadow: 3px 3px 3px $shadow;
+  border-radius: 8px;
+  display: flex;
+  margin: 1rem;
+  padding: 1rem;
+
+  @include desktop {
+    font-size: 1.5rem;
+    padding: 1.5rem 2.5rem;
+  }
+
+  &__logo {
+    width: 4rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    color: $primary;
+  }
+
+  &__list {
+    list-style: none;
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    text-transform: capitalize;
+  }
+
+  &__item {
+    cursor: pointer;
+    text-decoration: none;
+    color: $primary;
+  }
+}

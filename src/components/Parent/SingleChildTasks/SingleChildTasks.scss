@@ -1,0 +1,28 @@
+@use "../../../styles/partials/colors" as *;
+
+.single-child-tasks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__tasks {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__button {
+    margin: 1rem;
+    border-radius: 8px;
+    background-color: $accent;
+    color: $primary;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    padding: 0.5rem;
+    width: 6rem;
+    text-transform: capitalize;
+    box-shadow: 3px 3px 3px $shadow;
+    cursor: pointer;
+  }
+}

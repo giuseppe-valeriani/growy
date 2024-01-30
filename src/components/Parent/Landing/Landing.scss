@@ -1,0 +1,9 @@
+@use "../../../styles/partials/colors" as *;
+
+.landing {
+  padding: 2rem;
+
+  &__title {
+    color: $accent;
+  }
+}

@@ -1,0 +1,24 @@
+@use "../../../styles/partials/colors" as *;
+
+.child-profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+  width: 20rem;
+  height: 5rem;
+  background-color: $secondary;
+  padding: 1rem 3rem;
+  margin: 0 1rem;
+  box-shadow: 5px 5px 5px $shadow;
+
+  &__name {
+    text-transform: capitalize;
+    color: $accent;
+    font-size: 1.5rem;
+  }
+
+  &__points {
+    font-size: 1.5rem;
+  }
+}
