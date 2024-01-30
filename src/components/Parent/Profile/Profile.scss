@@ -14,8 +14,15 @@
     cursor: pointer;
   }
 
-  &__button {
+  &__buttons {
+    display: flex;
+    align-items: flex-start;
     margin: 1rem;
+    padding: 0.5rem;
+    gap: 2rem;
+  }
+
+  &__button {
     border-radius: 8px;
     background-color: $accent;
     color: $primary;

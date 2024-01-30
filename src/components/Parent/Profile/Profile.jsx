@@ -4,17 +4,27 @@ import axios from "axios";
 import "./Profile.scss";
 import ChildProfile from "../ChildProfile/ChildProfile";
 import AddProfile from "../AddProfile/AddProfile";
+import DeleteProfile from "../DeleteProfile/DeleteProfile";
 
 const URL = import.meta.env.VITE_API_URL;
 
 const Profile = () => {
   const [children, setChildren] = useState();
   const [isAddProfileOpen, setIsAddProfileOpen] = useState(false);
+  const [isDeleteProfileOpen, setIsDeleteProfileOpen] = useState(false);
 
   const getChildren = async () => {
     const response = await axios.get(`${URL}children`);
     setChildren(response.data);
   };
+
+  const deleteChildProfile = async (childId) => {
+    const payload = { id: childId };
+    await axios.delete(`${URL}children/${childId}`, { data: payload });
+    setIsDeleteProfileOpen(false);
+    getChildren();
+  };
+
   useEffect(() => {
     getChildren();
   }, []);
@@ -36,7 +46,7 @@ const Profile = () => {
           </Link>
         ))}
       </section>
-      <section>
+      <section className="profile__buttons">
         {isAddProfileOpen ? (
           <AddProfile
             getChildren={getChildren}
@@ -49,6 +59,29 @@ const Profile = () => {
           >
             add new profile
           </button>
+        )}
+        {!isDeleteProfileOpen ? (
+          <button
+            onClick={() => setIsDeleteProfileOpen(true)}
+            className="profile__button"
+          >
+            delete profile
+          </button>
+        ) : (
+          <button
+            onClick={() => setIsDeleteProfileOpen(false)}
+            className="profile__button"
+          >
+            cancel deleting
+          </button>
+        )}
+      </section>
+      <section>
+        {isDeleteProfileOpen && (
+          <DeleteProfile
+            children={children}
+            deleteChildProfile={deleteChildProfile}
+          />
         )}
       </section>
     </main>
