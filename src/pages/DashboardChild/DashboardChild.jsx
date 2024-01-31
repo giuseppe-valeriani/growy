@@ -36,7 +36,7 @@ const DashboardChild = () => {
 
   return (
     <>
-      <HeaderChild name={child[0].name} setCurrentPage={setCurrentPage} />
+      <HeaderChild setCurrentPage={setCurrentPage} />
       {currentPage === 0 && (
         <SingleChildTasks
           gettingNames={gettingNames}

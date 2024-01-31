@@ -8,7 +8,11 @@ const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (e.target.user.value) {
+    if (e.target.user.value === "romolo") {
+      navigate("/child/1");
+    } else if (e.target.user.value === "remo") {
+      navigate("/child/2");
+    } else {
       navigate("/family");
     }
   };
