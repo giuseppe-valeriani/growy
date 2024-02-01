@@ -1,0 +1,15 @@
+@use "../../../styles/partials/colors" as *;
+
+.profile-kid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14rem;
+  height: 8rem;
+  border-radius: 10rem;
+  background-color: $calm;
+  color: $bright;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}

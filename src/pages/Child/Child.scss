@@ -1,0 +1,29 @@
+@use "../../styles/partials/mixins" as *;
+
+.child {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 100vh;
+
+  &__upper {
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+  }
+
+  &__lower {
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+  }
+
+  &__arrow {
+    width: 4rem;
+
+    @include desktop {
+      width: 6rem;
+    }
+  }
+}

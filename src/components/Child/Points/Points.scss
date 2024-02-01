@@ -1,0 +1,15 @@
+@use "../../../styles/partials/colors" as *;
+
+.points {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 10%;
+  background-color: $lucid;
+  color: $calm;
+  font-size: 2rem;
+  font-weight: 700;
+}
