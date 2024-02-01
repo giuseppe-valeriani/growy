@@ -1,2 +1,32 @@
 .child {
+  margin: 1rem;
+  padding: 1rem;
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+  }
+
+  &__logout {
+    transition: ease-in-out 500ms;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+
+  &__logout-icon {
+    width: 2rem;
+  }
+
+  &__section {
+    padding: 1rem;
+  }
+
+  &__board {
+    display: flex;
+    gap: 1rem;
+  }
 }

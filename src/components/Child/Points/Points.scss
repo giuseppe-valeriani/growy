@@ -1,0 +1,22 @@
+@use "../../../styles/partials/colors" as *;
+
+.points {
+  display: flex;
+  align-items: center;
+  background-color: $lucid;
+  width: 30%;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px $shadow;
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  &__text {
+    text-transform: capitalize;
+  }
+
+  &__number {
+    font-weight: 700;
+    font-size: 1.8rem;
+  }
+}

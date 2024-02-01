@@ -3,11 +3,9 @@ import "./Points.scss";
 const Points = ({ points }) => {
   return (
     <article className="points">
-      <div className="points__divider">
-        <div>you have</div>
-        <div>points!</div>
+      <div className="points__text">
+        you have <span className="points__number">{points}</span> points!
       </div>
-      <div className="points__number">{points}</div>
     </article>
   );
 };

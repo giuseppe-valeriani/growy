@@ -38,16 +38,21 @@ const Child = () => {
 
   return (
     <main className="child">
-      <ProfileKid name={childState[0].name} />
-      <section className="child__info">
-        <Points points={childState[0].current_points} />
-        <Dreams />
-      </section>
-      <section className="child__tasks">
-        <Tasks />
+      <section className="child__nav">
+        <ProfileKid name={childState[0].name} />
         <Link to="/" className="child__logout">
           <img className="child__logout-icon" src={logout} alt="logout" />
         </Link>
+      </section>
+      <section className="child__section">
+        <h1>This is your Tasks-Board</h1>
+        <div className="child__board">
+          <Tasks />
+          <Points points={childState[0].current_points} />
+        </div>
+      </section>
+      <section className="child__section">
+        <Dreams />
       </section>
     </main>
   );
