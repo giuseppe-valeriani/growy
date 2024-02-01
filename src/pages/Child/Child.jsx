@@ -38,16 +38,16 @@ const Child = () => {
 
   return (
     <main className="child">
-      <Link to="/" className="child__logout">
-        <img className="child__logout-icon" src={logout} alt="logout" />
-      </Link>
-      <section className="child__upper">
-        <ProfileKid name={childState[0].name} />
+      <ProfileKid name={childState[0].name} />
+      <section className="child__info">
         <Points points={childState[0].current_points} />
         <Dreams />
       </section>
-      <section className="child__lower">
+      <section className="child__tasks">
         <Tasks />
+        <Link to="/" className="child__logout">
+          <img className="child__logout-icon" src={logout} alt="logout" />
+        </Link>
       </section>
     </main>
   );
