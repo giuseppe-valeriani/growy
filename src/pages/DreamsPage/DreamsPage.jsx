@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import "./DreamsPage.scss";
-
+import leftIcon from "../../assets/icons/left-arrow.svg";
 const URL = import.meta.env.VITE_API_URL;
 
 const DreamsPage = () => {
@@ -21,7 +21,21 @@ const DreamsPage = () => {
   if (!dreams) {
     return <article>Loading...</article>;
   }
-  return <Link to={`/child/${id}`}>my drams</Link>;
+
+  if (dreams.length === 0) {
+    return <main>Time to Dream...</main>;
+  }
+
+  return (
+    <main className="dreams__none">
+      <div className="dreams__divider">
+        <Link to={`/child/${id}`}>
+          <img className="dreams__icon" alt="back" src={leftIcon} />
+        </Link>
+        <span>What do you wish for?</span>
+      </div>
+    </main>
+  );
 };
 
 export default DreamsPage;

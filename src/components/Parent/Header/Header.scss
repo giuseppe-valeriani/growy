@@ -8,7 +8,7 @@
 }
 
 .nav {
-  background-color: $background;
+  background-color: $lucid;
   box-shadow: 3px 3px 3px $shadow;
   border-radius: 8px;
   display: flex;
@@ -21,11 +21,11 @@
   }
 
   &__logo {
-    width: 4rem;
+    color: $text;
     text-transform: uppercase;
     font-weight: 700;
+    font-size: 1.4rem;
     text-decoration: none;
-    color: $primary;
   }
 
   &__list {
@@ -39,6 +39,8 @@
   &__item {
     cursor: pointer;
     text-decoration: none;
-    color: $primary;
+    color: $calm;
+    font-weight: 700;
+    font-size: 1.2rem;
   }
 }

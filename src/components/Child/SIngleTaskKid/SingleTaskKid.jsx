@@ -1,11 +1,14 @@
+import { useState } from "react";
 import "./SingleTaskKid.scss";
 const URL = import.meta.env.VITE_API_URL;
 
 const SingleTaskKid = ({
-  task: { task, icon, frequence, points, is_skill, is_completed },
+  task: { task, id, icon, frequence, points, is_skill, is_completed },
+  handleComplete,
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <article className="single-task-kid">
+    <article onClick={() => setIsOpen(true)} className="single-task-kid">
       <div className="single-task-kid__divider">
         <div className="single-task-kid__task">{task}</div>
         <img
@@ -26,19 +29,14 @@ const SingleTaskKid = ({
             src={`${URL}icons/kidschores-53.png`}
           />
         )}
-        {/* {is_completed ? (
+        {isOpen && (
           <img
-            className="single-task-kid__skill single-task-kid__delete"
-            alt="a little star"
-            src={`${URL}icons/kidschores-54.png`}
+            onClick={() => handleComplete(id)}
+            className="single-task-kid__done"
+            alt="ticked"
+            src={`${URL}icons/kidschores-55.png`}
           />
-        ) : (
-          <img
-            className="single-task-kid__skill"
-            alt="a little star"
-            src={`${URL}icons/everyday-28.png`}
-          />
-        )} */}
+        )}
       </div>
     </article>
   );

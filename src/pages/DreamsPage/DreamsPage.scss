@@ -1,0 +1,35 @@
+@use "../../styles/partials/colors" as *;
+
+.dreams {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__tasks {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__none {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    align-items: center;
+    color: $warm;
+    font-size: 2rem;
+    gap: 2rem;
+  }
+
+  &__divider {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+    align-self: flex-start;
+  }
+
+  &__icon {
+    width: 4rem;
+  }
+}
