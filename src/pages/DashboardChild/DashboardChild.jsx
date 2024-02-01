@@ -18,7 +18,6 @@ const DashboardChild = () => {
 
   const gettingKid = async () => {
     const response = await axios.get(`${URL}children`);
-    console.log(response.data);
     setState(response.data);
   };
 

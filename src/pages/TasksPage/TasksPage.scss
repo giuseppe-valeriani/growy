@@ -1,0 +1,13 @@
+@use "../../styles/partials/colors" as *;
+
+.tasks-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__tasks {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

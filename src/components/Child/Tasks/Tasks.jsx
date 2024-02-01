@@ -1,7 +1,12 @@
+import { Link } from "react-router-dom";
 import "./Tasks.scss";
 
 const Tasks = () => {
-  return <article className="tasks">what to do?</article>;
+  return (
+    <Link to="./tasks" className="tasks">
+      what to do?
+    </Link>
+  );
 };
 
 export default Tasks;

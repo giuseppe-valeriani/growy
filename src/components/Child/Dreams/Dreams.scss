@@ -9,8 +9,15 @@
   border-radius: 10rem;
   background-color: $calm;
   color: $bright;
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 700;
   text-transform: capitalize;
   text-decoration: none;
+  cursor: pointer;
+  transition: 1s;
+  transition-timing-function: (ease);
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }

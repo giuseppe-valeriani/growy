@@ -4,7 +4,7 @@ import "./Dreams.scss";
 const Dreams = () => {
   return (
     <Link to="./dreams" className="dreams">
-      dreams
+      your dreams...
     </Link>
   );
 };

@@ -16,7 +16,12 @@
   &__lower {
     display: flex;
     justify-content: space-around;
-    width: 100vw;
+    align-items: center;
+  }
+
+  &__tasks {
+    display: flex;
+    padding: 0 auto;
   }
 
   &__arrow {

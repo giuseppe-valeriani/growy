@@ -3,13 +3,26 @@
 .points {
   margin-top: 4rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 7rem;
-  height: 7rem;
+  width: 10rem;
+  height: 10rem;
   border-radius: 10%;
   background-color: $lucid;
   color: $calm;
-  font-size: 2rem;
+  font-size: 1.3rem;
   font-weight: 700;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: 1s;
+  transition-timing-function: (ease);
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &__number {
+    font-size: 2rem;
+  }
 }
