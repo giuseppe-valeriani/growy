@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./Child.scss";
+import logout from "../../assets/icons/logout.png";
 import ProfileKid from "./../../components/Child/ProfileKid/ProfileKid";
 import Points from "../../components/Child/Points/Points";
 import Dreams from "../../components/Child/Dreams/Dreams";
@@ -37,6 +38,9 @@ const Child = () => {
 
   return (
     <main className="child">
+      <Link to="/" className="child__logout">
+        <img className="child__logout-icon" src={logout} alt="logout" />
+      </Link>
       <section className="child__upper">
         <ProfileKid name={childState[0].name} />
         <Points points={childState[0].current_points} />

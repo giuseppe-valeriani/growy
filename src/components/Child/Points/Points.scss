@@ -1,25 +1,32 @@
 @use "../../../styles/partials/colors" as *;
+@use "../../../styles/partials/mixins" as *;
 
 .points {
-  margin-top: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 10rem;
-  height: 10rem;
+  width: 8rem;
+  height: 8rem;
   border-radius: 10%;
   background-color: $lucid;
   color: $calm;
   font-size: 1.3rem;
   font-weight: 700;
   text-transform: capitalize;
+  box-shadow: 5px 5px 5px $shadow;
   cursor: pointer;
   transition: 1s;
   transition-timing-function: (ease);
 
   &:hover {
     transform: scale(1.1);
+  }
+
+  @include desktop {
+    width: 12rem;
+    height: 12rem;
+    font-size: 1.3rem;
   }
 
   &__number {

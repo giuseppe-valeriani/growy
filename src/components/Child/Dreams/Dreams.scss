@@ -1,23 +1,31 @@
 @use "../../../styles/partials/colors" as *;
+@use "../../../styles/partials/mixins" as *;
 
 .dreams {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 14rem;
-  height: 8rem;
+  width: 10rem;
+  height: 6rem;
   border-radius: 10rem;
   background-color: $calm;
   color: $bright;
-  font-size: 1.6rem;
   font-weight: 700;
   text-transform: capitalize;
   text-decoration: none;
+  box-shadow: 5px 5px 5px $shadow;
   cursor: pointer;
   transition: 1s;
   transition-timing-function: (ease);
 
   &:hover {
     transform: scale(1.1);
+  }
+
+  @include desktop {
+    width: 14rem;
+    height: 8rem;
+    font-size: 1.3rem;
   }
 }
