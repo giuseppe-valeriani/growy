@@ -10,23 +10,37 @@ const Dream = ({ dream: { goal, points, id }, redeemPoints, childPoints }) => {
   return (
     <div className="dream">
       <div className="dream__card">{goal}</div>
-      {childPoints >= points && (
-        <img
-          onClick={() => redeemPoints(points, id)}
-          className="dream__circle dream__success"
-          alt="position"
-          src={iconRendering[3]}
-        />
-      )}
-      {childPoints == points && (
-        <img className="dream__circle" alt="position" src={iconRendering[2]} />
-      )}
-      {childPoints <= points && (
-        <img className="dream__circle" alt="position" src={iconRendering[1]} />
-      )}
-      {!points && (
-        <img className="dream__circle" alt="position" src={iconRendering[0]} />
-      )}
+      <div>
+        {childPoints >= points && (
+          <img
+            onClick={() => redeemPoints(points, id)}
+            className="dream__circle dream__success"
+            alt="position"
+            src={iconRendering[3]}
+          />
+        )}
+        {childPoints == points && (
+          <img
+            className="dream__circle"
+            alt="position"
+            src={iconRendering[2]}
+          />
+        )}
+        {childPoints <= points && (
+          <img
+            className="dream__circle"
+            alt="position"
+            src={iconRendering[1]}
+          />
+        )}
+        {!points && (
+          <img
+            className="dream__circle"
+            alt="position"
+            src={iconRendering[0]}
+          />
+        )}
+      </div>
     </div>
   );
 };

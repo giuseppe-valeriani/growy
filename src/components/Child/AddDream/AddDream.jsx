@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./AddDream.scss";
 
-const AddDream = ({ addNewDream }) => {
+const AddDream = ({ addNewDream, cancel }) => {
   const [goal, setGoal] = useState("");
 
   const handleSubmit = (e) => {
@@ -23,6 +23,9 @@ const AddDream = ({ addNewDream }) => {
           />
         </label>
         <button className="add-dream__button">Add</button>
+        <button className="add-dream__button" onClick={() => cancel(false)}>
+          cancel
+        </button>
       </form>
     </>
   );

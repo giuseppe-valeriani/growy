@@ -48,10 +48,18 @@ const Profile = () => {
       </section>
       <section className="profile__buttons">
         {isAddProfileOpen ? (
-          <AddProfile
-            getChildren={getChildren}
-            setIsAddProfileOpen={setIsAddProfileOpen}
-          />
+          <div className="profile__aligner">
+            <AddProfile
+              getChildren={getChildren}
+              setIsAddProfileOpen={setIsAddProfileOpen}
+            />
+            <button
+              onClick={() => setIsAddProfileOpen(false)}
+              className="profile__button"
+            >
+              cancel
+            </button>
+          </div>
         ) : (
           <button
             onClick={() => setIsAddProfileOpen(true)}

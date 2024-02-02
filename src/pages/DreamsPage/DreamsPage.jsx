@@ -72,7 +72,7 @@ const DreamsPage = () => {
       </section>
       <section>
         {isOpened ? (
-          <AddDream addNewDream={addNewDream} />
+          <AddDream cancel={setIsOpened} addNewDream={addNewDream} />
         ) : (
           <button
             onClick={() => setIsOpened(true)}

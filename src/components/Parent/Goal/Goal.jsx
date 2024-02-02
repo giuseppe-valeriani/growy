@@ -25,7 +25,7 @@ const Goal = ({ goal, gettingGoals }) => {
       {isEdit ? (
         <form onSubmit={handleSubmit} className="goal__form">
           <button type="submit" className="goal__button">
-            Assing
+            Assign
           </button>
           <input type="number" className="goal__input" name="points" />
         </form>

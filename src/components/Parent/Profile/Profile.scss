@@ -22,9 +22,15 @@
     gap: 2rem;
   }
 
+  &__aligner {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
+
   &__button {
     border-radius: 8px;
-    background-color: $accent;
+    background-color: $warm;
     color: $primary;
     font-size: 1rem;
     font-weight: 700;
