@@ -6,6 +6,8 @@
 
   &__name {
     font-size: 1.4rem;
+    text-transform: capitalize;
+    min-width: 6rem;
   }
 
   &__points {
@@ -28,7 +30,7 @@
     font-weight: 700;
     border: none;
     padding: 0.5rem;
-    width: 6rem;
+    width: 4rem;
     text-transform: capitalize;
     box-shadow: 3px 3px 3px $shadow;
     cursor: pointer;

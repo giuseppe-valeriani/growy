@@ -2,8 +2,10 @@
 
 .add-profile {
   display: flex;
-  flex-direction: column;
-  margin: 1rem;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 1rem;
+  margin: 0 1rem;
 
   &__button {
     margin-top: 4rem;

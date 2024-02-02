@@ -48,7 +48,7 @@ const Profile = () => {
       </section>
       <section className="profile__buttons">
         {isAddProfileOpen ? (
-          <div className="profile__aligner">
+          <div className={`profile__aligner`}>
             <AddProfile
               getChildren={getChildren}
               setIsAddProfileOpen={setIsAddProfileOpen}
@@ -63,28 +63,30 @@ const Profile = () => {
         ) : (
           <button
             onClick={() => setIsAddProfileOpen(true)}
-            className="profile__button"
+            className={`profile__button ${
+              isDeleteProfileOpen ? "profile__none" : ""
+            }`}
           >
             add new profile
           </button>
         )}
-        {!isDeleteProfileOpen ? (
-          <button
-            onClick={() => setIsDeleteProfileOpen(true)}
-            className="profile__button"
-          >
-            delete profile
-          </button>
-        ) : (
+        {isDeleteProfileOpen ? (
           <button
             onClick={() => setIsDeleteProfileOpen(false)}
             className="profile__button"
           >
             cancel deleting
           </button>
+        ) : (
+          <button
+            onClick={() => setIsDeleteProfileOpen(true)}
+            className={`profile__button ${
+              isAddProfileOpen ? "profile__none" : ""
+            }`}
+          >
+            delete profile
+          </button>
         )}
-      </section>
-      <section>
         {isDeleteProfileOpen && (
           <DeleteProfile
             children={children}
