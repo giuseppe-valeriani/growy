@@ -56,10 +56,10 @@ There will be both parent and child profiles, so the children (of an appropriate
 ### Sitemap
 
 - Login Page (Mockup)
-- Profile page (separate interface for parent and child)
-- Tasks page (separate interface for parent and child)
-- Points page (separate interface for parent and child)
-- Goals page (separate interface for parent and child)
+- Family page (parent interface)
+- Profiles pages (separate interface for parent and child)
+- Tasks pages (separate interface for parent and child)
+- Goals pages (separate interface for parent and child)
 
 ### Mockups
 
@@ -106,11 +106,23 @@ There will be both parent and child profiles, so the children (of an appropriate
 ### Endpoints
 
 - GET /tasks/list
-- GET /tasks/:id
+- GET /tasks/fast
 - GET /icons
+- GET /children
+- GET /children/:id
+- GET /children/goals
+- GET /children/:id/goals
 - POST /tasks/add
-- PATCH /tasks/:id
+- POST /children/add
+- POST /children/:id/add
+- POST /children/:id/goals/add
+- PATCH /children/:id
+- PATCH /children/:id/tasks
+- PATCH /children/goals/:id/
 - DELETE /tasks/:id
+- DELETE /children/:id
+- DELETE /children/goals/:id
+- DELETE /children/:id/tasks
 
 ### Auth
 
