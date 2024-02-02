@@ -17,7 +17,7 @@ const AddProfile = ({ setIsAddProfileOpen, getChildren }) => {
 
   return (
     <form className="add-profile" onSubmit={handleSubmit}>
-      <input name="name"></input>
+      <input className="add-profile__input" name="name"></input>
       <button className="add-profile__button" type="submit">
         add
       </button>

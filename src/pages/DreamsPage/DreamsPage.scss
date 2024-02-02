@@ -1,6 +1,6 @@
 @use "../../styles/partials/colors" as *;
 
-.dreams {
+.dreams-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,12 +16,12 @@
     flex-direction: column;
     margin: 2rem;
     align-items: center;
-    color: $warm;
     font-size: 2rem;
     gap: 2rem;
   }
 
   &__divider {
+    color: $warm;
     display: flex;
     flex-direction: row;
     gap: 2rem;
@@ -31,5 +31,25 @@
 
   &__icon {
     width: 4rem;
+  }
+
+  &__card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  &__button {
+    background-color: $accent;
+    border-radius: 8px;
+    color: $primary;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    padding: 0.5rem;
+    width: 6rem;
+    box-shadow: 5px 5px 5px $shadow;
+    text-transform: capitalize;
+    cursor: pointer;
   }
 }

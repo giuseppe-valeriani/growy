@@ -4,12 +4,12 @@ import "./Goal.scss";
 
 const URL = import.meta.env.VITE_API_URL;
 
-const Goal = ({ idParams, goal, gettingGoals }) => {
+const Goal = ({ goal, gettingGoals }) => {
   const [isEdit, setIsEdit] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.patch(`${URL}children/goals/${idParams}`, {
+    await axios.patch(`${URL}children/goals/${goal.id}`, {
       points: Number(e.target.points.value),
     });
     gettingGoals();

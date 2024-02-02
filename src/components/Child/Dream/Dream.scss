@@ -1,0 +1,39 @@
+@use "../../../styles/partials/colors" as *;
+
+.dream {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem;
+  gap: 1rem;
+  width: 20rem;
+  height: 10rem;
+  padding: 2rem;
+  background-color: $background;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px $shadow;
+  text-transform: capitalize;
+
+  &__button {
+    background-color: $accent;
+    border-radius: 8px;
+    color: $primary;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    padding: 0.5rem;
+    width: 6rem;
+    box-shadow: 5px 5px 5px $shadow;
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+
+  &__circle {
+    width: 3rem;
+    align-self: flex-end;
+  }
+
+  &__success {
+    cursor: pointer;
+  }
+}
