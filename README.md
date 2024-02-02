@@ -91,10 +91,6 @@ There will be both parent and child profiles, so the children (of an appropriate
 
 ![](./proposal/tasks-kid.png)
 
-#### Points Page - Child
-
-![](./proposal/points-kid.png)
-
 #### Goals Page - Child
 
 ![](./proposal/goals-kid.png)
