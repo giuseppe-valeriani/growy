@@ -31,19 +31,19 @@ const Task = ({
           <div className="task__frequence">{frequence}</div>
           <div className="task__points">{points} Pts</div>
         </div>
-        {is_skill === 1 && (
-          <img
-            className="task__skill"
-            alt="a little star"
-            src={`${URL}icons/kidschores-53.png`}
-          />
-        )}
         {isDeleting && (
           <img
             onClick={handleDelete}
             className="task__delete"
             src={deleteIcon}
             alt="deleting icon"
+          />
+        )}
+        {is_skill === 1 && (
+          <img
+            className="task__skill"
+            alt="a little star"
+            src={`${URL}icons/kidschores-53.png`}
           />
         )}
       </div>

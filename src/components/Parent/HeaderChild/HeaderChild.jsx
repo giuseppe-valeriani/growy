@@ -16,8 +16,8 @@ const HeaderChild = ({ setCurrentPage, name }) => {
           <li className="nav__item" onClick={() => setCurrentPage(1)}>
             goals
           </li>
-          <li>
-            <NavLink className="nav__item" to="/">
+          <li className="nav__item">
+            <NavLink className="nav__link" to="/">
               logout
             </NavLink>
           </li>
