@@ -14,13 +14,6 @@
   padding: 1rem;
   box-shadow: 5px 5px 5px $shadow;
 
-  @include desktop {
-    width: 30rem;
-    height: 15rem;
-    margin: 2rem;
-    padding: 2rem;
-  }
-
   &__divider {
     display: flex;
     justify-content: space-between;
@@ -30,10 +23,6 @@
   &__task {
     font-size: 1.5rem;
     text-transform: capitalize;
-
-    @include desktop {
-      font-size: 2rem;
-    }
   }
 
   &__icon {
@@ -56,10 +45,6 @@
     color: $accent;
     font-weight: 700;
     text-transform: uppercase;
-
-    @include desktop {
-      font-size: 1.5rem;
-    }
   }
 
   &__points {

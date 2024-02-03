@@ -46,7 +46,7 @@ const Landing = () => {
     <main className="landing">
       <h1 className="landing__title">
         Your kids are working hard! You have{" "}
-        <span className="landing__number">{tasksDone.length} </span>task/s to
+        <span className="landing__number">{tasksDone.length} </span>tasks to
         verify
       </h1>
     </main>
