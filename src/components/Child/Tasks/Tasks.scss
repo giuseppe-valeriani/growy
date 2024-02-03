@@ -1,0 +1,22 @@
+@use "../../../styles/partials/colors" as *;
+
+.tasks {
+  display: flex;
+  align-items: center;
+  background-color: $calm;
+  color: $lucid;
+  padding: 2rem;
+  width: 60%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px $shadow;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: ease-in-out 500ms;
+
+  &:hover {
+    background-color: $lucid;
+    color: $calm;
+  }
+}

@@ -14,10 +14,23 @@
     cursor: pointer;
   }
 
-  &__button {
+  &__buttons {
+    display: flex;
+    align-items: flex-start;
     margin: 1rem;
+    padding: 0.5rem;
+    gap: 2rem;
+  }
+
+  &__aligner {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
+
+  &__button {
     border-radius: 8px;
-    background-color: $accent;
+    background-color: $warm;
     color: $primary;
     font-size: 1rem;
     font-weight: 700;
@@ -27,5 +40,9 @@
     text-transform: capitalize;
     box-shadow: 3px 3px 3px $shadow;
     cursor: pointer;
+  }
+
+  &__none {
+    display: none;
   }
 }

@@ -10,12 +10,12 @@ const DashboardParent = () => {
   const [currentPage, setCurrentPage] = useState(0);
 
   return (
-    <>
+    <span>
       <Header setCurrentPage={setCurrentPage} />
       {currentPage === 0 && <Landing />}
       {currentPage === 1 && <Profile />}
       {currentPage === 2 && <TasksList />}
-    </>
+    </span>
   );
 };
 

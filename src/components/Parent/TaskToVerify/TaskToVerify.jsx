@@ -6,14 +6,14 @@ const URL = import.meta.env.VITE_API_URL;
 
 const TaskToVerify = ({
   idParams,
-  gettingNames,
+  gettingChildren,
   task: { task, frequence, icon, points, is_skill, is_completed, id: taskId },
 }) => {
   const handleVerify = async () => {
     const payload = { id: taskId };
     await axios.patch(`${URL}children/${idParams}`, { current_points: points });
     await axios.delete(`${URL}children/${idParams}/tasks`, { data: payload });
-    gettingNames();
+    gettingChildren();
   };
   return (
     <article className="task-to-verify">

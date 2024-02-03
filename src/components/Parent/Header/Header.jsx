@@ -20,14 +20,8 @@ const Header = ({ setCurrentPage }) => {
           <li className="nav__item" onClick={() => setCurrentPage(2)}>
             tasks
           </li>
-          {/* <li className="nav__item" onClick={() => setCurrentPage(3)}>
-            points
-          </li>
-          <li className="nav__item" onClick={() => setCurrentPage(4)}>
-            goals
-          </li> */}
-          <li>
-            <NavLink className="nav__item" to="/">
+          <li className="nav__item">
+            <NavLink className="nav__link" to="/">
               logout
             </NavLink>
           </li>

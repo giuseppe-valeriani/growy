@@ -1,0 +1,26 @@
+@use "../../../styles/partials/colors" as *;
+
+.add-dream {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+
+  &__input {
+    padding: 0.5rem;
+    border-radius: 8px;
+  }
+
+  &__button {
+    background-color: $warm;
+    border-radius: 8px;
+    color: $primary;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    padding: 0.5rem;
+    width: 6rem;
+    box-shadow: 5px 5px 5px $shadow;
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+}
