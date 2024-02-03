@@ -16,6 +16,13 @@ const DashboardChild = () => {
   const [name, setName] = useState(null);
   const { id } = useParams();
 
+  let currentField = "";
+  let currentHeader = "";
+  if (name) {
+    currentField = name.filter((child) => child.id == id);
+    currentHeader = currentField[0].name;
+  }
+
   const gettingName = async () => {
     const response = await axios.get(`${URL}children`);
     setName(response.data);
@@ -30,7 +37,6 @@ const DashboardChild = () => {
     const response = await axios.get(`${URL}children/${id}/goals`);
     setGoals(response.data);
   };
-
   useEffect(() => {
     gettingName();
     gettingChildren();
@@ -43,7 +49,7 @@ const DashboardChild = () => {
 
   return (
     <>
-      <HeaderChild name={name[id - 1].name} setCurrentPage={setCurrentPage} />
+      <HeaderChild name={currentHeader} setCurrentPage={setCurrentPage} />
       {currentPage === 0 && (
         <SingleChildTasks
           gettingChildren={gettingChildren}
