@@ -18,12 +18,5 @@
     margin: 0 1rem;
     padding: 1rem;
     box-shadow: 5px 5px 5px $shadow;
-
-    @include desktop {
-      width: 30rem;
-      height: 15rem;
-      margin: 2rem;
-      padding: 2rem;
-    }
   }
 }
