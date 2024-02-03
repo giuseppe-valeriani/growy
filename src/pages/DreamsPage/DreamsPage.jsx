@@ -44,11 +44,32 @@ const DreamsPage = () => {
   }, []);
 
   if (!dreams) {
-    return <article>Loading...</article>;
+    return <main>Loading...</main>;
   }
 
   if (dreams.length === 0) {
-    return <main>Time to Dream...</main>;
+    return (
+      <main className="dreams-page__none">
+        <section className="dreams-page__divider">
+          <Link to={`/child/${id}`}>
+            <img className="dreams-page__icon" alt="back" src={leftIcon} />
+          </Link>
+          <span>What do you wish for?</span>
+        </section>
+        <section>
+          {isOpened ? (
+            <AddDream cancel={setIsOpened} addNewDream={addNewDream} />
+          ) : (
+            <button
+              onClick={() => setIsOpened(true)}
+              className="dreams-page__button"
+            >
+              Wish more
+            </button>
+          )}
+        </section>
+      </main>
+    );
   }
 
   return (

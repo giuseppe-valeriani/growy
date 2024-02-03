@@ -12,6 +12,8 @@ const Home = () => {
       navigate("/child/1");
     } else if (e.target.user.value === "remo") {
       navigate("/child/2");
+    } else if (e.target.user.value === "sara") {
+      navigate("/child/3");
     } else {
       navigate("/family");
     }

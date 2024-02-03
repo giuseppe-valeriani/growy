@@ -24,7 +24,18 @@ const Landing = () => {
     return (
       <main className="landing">
         <h1 className="landing__title">
-          Your kids are working hard! You have {tasksDone.length} task/s to
+          Nothing to report! Work in progress...
+        </h1>
+      </main>
+    );
+  }
+
+  if (tasksDone.length === 1) {
+    return (
+      <main className="landing">
+        <h1 className="landing__title">
+          Your kids are working hard! You have{" "}
+          <span className="landing__number">{tasksDone.length}</span> task to
           verify
         </h1>
       </main>
@@ -34,7 +45,9 @@ const Landing = () => {
   return (
     <main className="landing">
       <h1 className="landing__title">
-        Your kids are working hard! You have {tasksDone.length} task/s to verify
+        Your kids are working hard! You have{" "}
+        <span className="landing__number">{tasksDone.length} </span>task/s to
+        verify
       </h1>
     </main>
   );
