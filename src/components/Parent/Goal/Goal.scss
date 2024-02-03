@@ -18,6 +18,7 @@
   &__form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: flex-end;
   }
 
@@ -26,7 +27,7 @@
     border-radius: 8px;
     background-color: $warm;
     color: $primary;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 700;
     border: none;
     padding: 0.5rem;
@@ -42,5 +43,10 @@
     border-radius: 4px;
     border-color: $accent;
     background-color: $background;
+  }
+
+  &__error {
+    color: $error;
+    font-weight: 700;
   }
 }

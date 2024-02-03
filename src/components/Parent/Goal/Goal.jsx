@@ -6,12 +6,22 @@ const URL = import.meta.env.VITE_API_URL;
 
 const Goal = ({ goal, gettingGoals }) => {
   const [isEdit, setIsEdit] = useState(false);
+  const [error, setError] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (
+      !e.target.points.value ||
+      e.target.points.value < 0 ||
+      e.target.points.value > 10000
+    ) {
+      setError({ ...error, points: "Assigned points out of range" });
+      return;
+    }
     await axios.patch(`${URL}children/goals/${goal.id}`, {
       points: Number(e.target.points.value),
     });
+    setError({});
     gettingGoals();
     setIsEdit(false);
   };
@@ -28,6 +38,7 @@ const Goal = ({ goal, gettingGoals }) => {
             Assign
           </button>
           <input type="number" className="goal__input" name="points" />
+          <span className="goal__error">{error.points && error.points}</span>
         </form>
       ) : (
         <button onClick={() => setIsEdit(true)} className="goal__button">
