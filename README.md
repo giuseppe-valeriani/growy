@@ -2,7 +2,7 @@
 
 ## Overview
 
-Growy is an app for diligent kids that tracks their chores and progresses, and encourage them to maintain good behavior and learn new tasks giving them satisfaction and little treats.
+Growy is an app for diligent kids that tracks their chores and progresses, and encourage them to maintain good behaviour and learn new tasks giving them satisfaction and little treats.
 
 ### Problem
 
