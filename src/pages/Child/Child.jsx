@@ -45,7 +45,7 @@ const Child = () => {
         </Link>
       </section>
       <section className="child__section">
-        <h1>This is your Tasks-Board</h1>
+        <h1>This is your Taskboard</h1>
         <div className="child__board">
           <Tasks />
           <Points points={childState[0].current_points} />
