@@ -1,3 +1,6 @@
+Server side at
+https://github.com/giuseppe-valeriani/growy-server
+
 # Growy
 
 ## Overview
