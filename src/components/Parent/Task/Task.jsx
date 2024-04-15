@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Task.scss";
 import deleteIcon from "../../../assets/icons/delete.png";
+import { useAuth } from "../../../contexts/authContext";
 
 const URL = import.meta.env.VITE_API_URL;
 
@@ -9,6 +10,7 @@ const Task = ({
   task: { task, frequence, icon, points, is_skill, id },
   retrieveTasks,
 }) => {
+  const { authUser } = useAuth();
   const [isDeleting, setIsDeleting] = useState(false);
 
   const handleClick = () => {
@@ -16,7 +18,11 @@ const Task = ({
   };
 
   const handleDelete = async () => {
-    await axios.delete(`${URL}tasks/${id}`);
+    await axios.delete(`${URL}tasks/${id}`, {
+      headers: {
+        Authorization: `Bearer ${authUser.token}`,
+      },
+    });
     retrieveTasks();
   };
 

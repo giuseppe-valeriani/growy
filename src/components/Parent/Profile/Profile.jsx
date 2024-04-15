@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useAuth } from "../../../contexts/authContext";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Profile.scss";
@@ -9,18 +10,31 @@ import DeleteProfile from "../DeleteProfile/DeleteProfile";
 const URL = import.meta.env.VITE_API_URL;
 
 const Profile = () => {
+  const { authUser } = useAuth();
   const [children, setChildren] = useState();
   const [isAddProfileOpen, setIsAddProfileOpen] = useState(false);
   const [isDeleteProfileOpen, setIsDeleteProfileOpen] = useState(false);
 
   const getChildren = async () => {
-    const response = await axios.get(`${URL}children`);
+    const response = await axios.get(`${URL}children`, {
+      headers: {
+        Authorization: `Bearer ${authUser.token}`,
+      },
+    });
     setChildren(response.data);
   };
 
   const deleteChildProfile = async (childId) => {
     const payload = { id: childId };
-    await axios.delete(`${URL}children/${childId}`, { data: payload });
+    await axios.delete(
+      `${URL}children/${childId}`,
+      { data: payload },
+      {
+        headers: {
+          Authorization: `Bearer ${authUser.token}`,
+        },
+      }
+    );
     setIsDeleteProfileOpen(false);
     getChildren();
   };

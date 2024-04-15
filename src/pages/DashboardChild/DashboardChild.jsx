@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useAuth } from "../../contexts/authContext";
 import { useParams } from "react-router-dom";
 import "./DashboardChild.scss";
 
@@ -10,6 +11,7 @@ import SingleChildGoals from "../../components/Parent/SingleChildGoals/SingleChi
 const URL = import.meta.env.VITE_API_URL;
 
 const DashboardChild = () => {
+  const { authUser } = useAuth();
   const [currentPage, setCurrentPage] = useState(0);
   const [child, setChild] = useState(null);
   const [goals, setGoals] = useState(null);
@@ -24,17 +26,29 @@ const DashboardChild = () => {
   }
 
   const gettingName = async () => {
-    const response = await axios.get(`${URL}children`);
+    const response = await axios.get(`${URL}children`, {
+      headers: {
+        Authorization: `Bearer ${authUser.token}`,
+      },
+    });
     setName(response.data);
   };
 
   const gettingChildren = async () => {
-    const response = await axios.get(`${URL}children/${id}`);
+    const response = await axios.get(`${URL}children/${id}`, {
+      headers: {
+        Authorization: `Bearer ${authUser.token}`,
+      },
+    });
     setChild(response.data);
   };
 
   const gettingGoals = async () => {
-    const response = await axios.get(`${URL}children/${id}/goals`);
+    const response = await axios.get(`${URL}children/${id}/goals`, {
+      headers: {
+        Authorization: `Bearer ${authUser.token}`,
+      },
+    });
     setGoals(response.data);
   };
   useEffect(() => {

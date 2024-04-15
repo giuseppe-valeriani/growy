@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./AddChildTask.scss";
+import { useAuth } from "../../../contexts/authContext";
 
 const URL = import.meta.env.VITE_API_URL;
 
@@ -10,6 +11,7 @@ const AddChildTask = ({
   setSelectedTask,
   addTask,
 }) => {
+  const { authUser } = useAuth;
   const [tasks, setTasks] = useState(null);
 
   const handleClick = () => {
@@ -22,7 +24,11 @@ const AddChildTask = ({
 
   useEffect(() => {
     const getTasks = async () => {
-      const response = await axios.get(`${URL}tasks/fast`);
+      const response = await axios.get(`${URL}tasks/fast`, {
+        headers: {
+          Authorization: `Bearer ${authUser.token}`,
+        },
+      });
       setTasks(response.data);
     };
     getTasks();

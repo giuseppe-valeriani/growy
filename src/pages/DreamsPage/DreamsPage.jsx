@@ -5,35 +5,65 @@ import "./DreamsPage.scss";
 import leftIcon from "../../assets/icons/left-arrow.svg";
 import Dream from "../../components/Child/Dream/Dream";
 import AddDream from "../../components/Child/AddDream/AddDream";
+import { useAuth } from "../../contexts/authContext";
 const URL = import.meta.env.VITE_API_URL;
 
 const DreamsPage = () => {
+  const { authUser } = useAuth();
   const [isOpened, setIsOpened] = useState(false);
   const [dreams, setDreams] = useState(null);
   const [childPoints, setChildPoints] = useState(null);
   const { id } = useParams();
 
   const getDreams = async () => {
-    const response = await axios.get(`${URL}children/${id}/goals`);
+    const response = await axios.get(`${URL}children/${id}/goals`, {
+      headers: {
+        Authorization: `Bearer ${authUser.token}`,
+      },
+    });
     setDreams(response.data);
   };
 
   const getPoints = async () => {
-    const response = await axios.get(`${URL}children/${id}`);
+    const response = await axios.get(`${URL}children/${id}`, {
+      headers: {
+        Authorization: `Bearer ${authUser.token}`,
+      },
+    });
     setChildPoints(response.data[0].current_points);
   };
 
   const addNewDream = async (dream) => {
-    await axios.post(`${URL}children/${id}/goals/add`, {
-      goal: dream,
-    });
+    await axios.post(
+      `${URL}children/${id}/goals/add`,
+      {
+        goal: dream,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${authUser.token}`,
+        },
+      }
+    );
     setIsOpened(false);
     getDreams();
   };
 
   const redeemPoints = async (points, goalId) => {
-    await axios.patch(`${URL}children/${id}`, { current_points: -points });
-    await axios.delete(`${URL}children/goals/${goalId}`);
+    await axios.patch(
+      `${URL}children/${id}`,
+      { current_points: -points },
+      {
+        headers: {
+          Authorization: `Bearer ${authUser.token}`,
+        },
+      }
+    );
+    await axios.delete(`${URL}children/goals/${goalId}`, {
+      headers: {
+        Authorization: `Bearer ${authUser.token}`,
+      },
+    });
     getDreams();
     getPoints();
   };

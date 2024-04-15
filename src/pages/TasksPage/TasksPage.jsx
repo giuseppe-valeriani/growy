@@ -4,15 +4,21 @@ import { Link, useParams } from "react-router-dom";
 import "./TasksPage.scss";
 import leftIcon from "../../assets/icons/left-arrow.svg";
 import SingleTaskKid from "../../components/Child/SIngleTaskKid/SingleTaskKid";
+import { useAuth } from "../../contexts/authContext";
 
 const URL = import.meta.env.VITE_API_URL;
 
 const TasksPage = () => {
+  const { authUser } = useAuth();
   const [tasks, setTasks] = useState();
   const { id } = useParams();
 
   const getTasks = async () => {
-    const response = await axios.get(`${URL}children/${id}`);
+    const response = await axios.get(`${URL}children/${id}`, {
+      headers: {
+        Authorization: `Bearer ${authUser.token}`,
+      },
+    });
     const filtered = response.data.filter((task) => task.is_completed === 0);
     setTasks(filtered);
   };
@@ -22,7 +28,15 @@ const TasksPage = () => {
   }, []);
 
   const handleComplete = async (id) => {
-    await axios.patch(`${URL}children/${id}/tasks`, { id: id });
+    await axios.patch(
+      `${URL}children/${id}/tasks`,
+      { id: id },
+      {
+        headers: {
+          Authorization: `Bearer ${authUser.token}`,
+        },
+      }
+    );
     getTasks();
   };
 

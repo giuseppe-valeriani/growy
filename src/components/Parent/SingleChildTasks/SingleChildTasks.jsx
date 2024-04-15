@@ -3,16 +3,22 @@ import axios from "axios";
 import "./SingleChildTasks.scss";
 import TaskToVerify from "../../Parent/TaskToVerify/TaskToVerify";
 import AddChildTask from "../AddChildTask/AddChildTask";
+import { useAuth } from "../../../contexts/authContext";
 
 const URL = import.meta.env.VITE_API_URL;
 
 const SingleChildTasks = ({ idParams, child, gettingChildren }) => {
+  const { authUser } = useAuth();
   const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
 
   const addTask = async () => {
     const payload = { id: selectedTask };
-    await axios.post(`${URL}children/${idParams}/add`, payload);
+    await axios.post(`${URL}children/${idParams}/add`, payload, {
+      headers: {
+        Authorization: `Bearer ${authUser.token}`,
+      },
+    });
     gettingChildren();
   };
 

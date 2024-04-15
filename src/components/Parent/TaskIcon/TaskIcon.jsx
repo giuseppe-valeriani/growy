@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./TaskIcon.scss";
+import { useAuth } from "../../../contexts/authContext";
 
 const URL = import.meta.env.VITE_API_URL;
 
 const TaskIcon = ({ selectedIcon, setSelectedIcon }) => {
+  const { authUser } = useAuth();
   const [listOpened, setListOpened] = useState(false);
   const [iconsList, setIconsList] = useState();
 
@@ -14,7 +16,11 @@ const TaskIcon = ({ selectedIcon, setSelectedIcon }) => {
   };
 
   const getIconsList = async () => {
-    const response = await axios.get(`${URL}icons`);
+    const response = await axios.get(`${URL}icons`, {
+      headers: {
+        Authorization: `Bearer ${authUser.token}`,
+      },
+    });
     setIconsList(response.data);
   };
 

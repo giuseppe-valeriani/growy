@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./TaskToVerify.scss";
+import { useAuth } from "../../../contexts/authContext";
 
 const URL = import.meta.env.VITE_API_URL;
 
@@ -9,10 +10,30 @@ const TaskToVerify = ({
   gettingChildren,
   task: { task, frequence, icon, points, is_skill, is_completed, id: taskId },
 }) => {
+  console.log(idParams);
+  console.log(taskId);
+  const { authUser } = useAuth();
   const handleVerify = async () => {
     const payload = { id: taskId };
-    await axios.patch(`${URL}children/${idParams}`, { current_points: points });
-    await axios.delete(`${URL}children/${idParams}/tasks`, { data: payload });
+    await axios.patch(
+      `${URL}children/${idParams}`,
+      { current_points: points },
+      {
+        headers: {
+          Authorization: `Bearer ${authUser.token}`,
+        },
+      }
+    );
+
+    await axios.delete(
+      `${URL}children/${taskId}/tasks`,
+      { data: payload },
+      {
+        headers: {
+          Authorization: `Bearer ${authUser.token}`,
+        },
+      }
+    );
     gettingChildren();
   };
   return (
@@ -41,13 +62,13 @@ const TaskToVerify = ({
           <img
             onClick={handleVerify}
             className="task-to-verify__skill task-to-verify__delete"
-            alt="a little star"
+            alt="done"
             src={`${URL}icons/kidschores-54.png`}
           />
         ) : (
           <img
             className="task-to-verify__skill"
-            alt="a little star"
+            alt="a cushion"
             src={`${URL}icons/everyday-28.png`}
           />
         )}

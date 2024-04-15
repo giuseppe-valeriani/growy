@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from "react";
+import { useAuth } from "../../../contexts/authContext";
 import axios from "axios";
 import "./Landing.scss";
 
 const URL = import.meta.env.VITE_API_URL;
 
 const Landing = () => {
+  const { authUser } = useAuth();
   const [tasksDone, setTasksDone] = useState(null);
 
   const getCompleted = async () => {
-    const response = await axios.get(`${URL}children/goals`);
+    const response = await axios.get(`${URL}children/goals`, {
+      headers: {
+        Authorization: `Bearer ${authUser.token}`,
+      },
+    });
     setTasksDone(response.data);
   };
 

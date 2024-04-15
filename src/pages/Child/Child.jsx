@@ -7,23 +7,33 @@ import ProfileKid from "./../../components/Child/ProfileKid/ProfileKid";
 import Points from "../../components/Child/Points/Points";
 import Dreams from "../../components/Child/Dreams/Dreams";
 import Tasks from "../../components/Child/Tasks/Tasks";
+import { useAuth } from "../../contexts/authContext";
 
 const URL = import.meta.env.VITE_API_URL;
 
 const Child = () => {
+  const { authUser } = useAuth();
   const [childState, setChildState] = useState(null);
   const [childProfile, setChildProfile] = useState(null);
 
   const { id } = useParams();
 
   const getChildInfo = async () => {
-    const response = await axios.get(`${URL}children`);
+    const response = await axios.get(`${URL}children`, {
+      headers: {
+        Authorization: `Bearer ${authUser.token}`,
+      },
+    });
     const filtered = response.data.filter((child) => child.id == id);
     setChildState(filtered);
   };
 
   const getPersonalFile = async () => {
-    const response = await axios(`${URL}children/${id}`);
+    const response = await axios(`${URL}children/${id}`, {
+      headers: {
+        Authorization: `Bearer ${authUser.token}`,
+      },
+    });
     setChildProfile(response.data);
   };
 

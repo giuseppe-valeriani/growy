@@ -2,14 +2,20 @@ import { useState } from "react";
 import axios from "axios";
 import "./AddTask.scss";
 import AddTaskForm from "../AddTaskForm/AddTaskForm";
+import { useAuth } from "../../../contexts/authContext";
 
 const URL = import.meta.env.VITE_API_URL;
 
 const AddTask = ({ retrieveTasks }) => {
+  const { authUser } = useAuth();
   const [openedForm, setOpenedForm] = useState(false);
 
   const formSubmission = async (payload) => {
-    await axios.post(`${URL}tasks/add`, payload);
+    await axios.post(`${URL}tasks/add`, payload, {
+      headers: {
+        Authorization: `Bearer ${authUser.token}`,
+      },
+    });
     setOpenedForm(false);
     retrieveTasks();
   };

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 import "./Goal.scss";
+import { useAuth } from "../../../contexts/authContext";
 
 const URL = import.meta.env.VITE_API_URL;
 
 const Goal = ({ goal, gettingGoals }) => {
+  const { authUser } = useAuth();
   const [isEdit, setIsEdit] = useState(false);
   const [error, setError] = useState({});
 
@@ -18,9 +20,17 @@ const Goal = ({ goal, gettingGoals }) => {
       setError({ ...error, points: "Assigned points out of range" });
       return;
     }
-    await axios.patch(`${URL}children/goals/${goal.id}`, {
-      points: Number(e.target.points.value),
-    });
+    await axios.patch(
+      `${URL}children/goals/${goal.id}`,
+      {
+        points: Number(e.target.points.value),
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${authUser.token}`,
+        },
+      }
+    );
     setError({});
     gettingGoals();
     setIsEdit(false);
