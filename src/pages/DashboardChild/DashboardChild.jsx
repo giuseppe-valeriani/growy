@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import "./DashboardChild.scss";
 import SingleChildTasks from "../../components/Parent/SingleChildTasks/SingleChildTasks";
 import SingleChildGoals from "../../components/Parent/SingleChildGoals/SingleChildGoals";
+import HeaderChild from "../../components/Parent/HeaderChild/HeaderChild";
 
 const URL = import.meta.env.VITE_API_URL;
 
@@ -61,6 +62,7 @@ const DashboardChild = () => {
 
   return (
     <>
+      <HeaderChild name={currentHeader} setCurrentPage={setCurrentPage} />
       {currentPage === 0 && (
         <SingleChildTasks
           gettingChildren={gettingChildren}
