@@ -10,11 +10,10 @@ const TaskToVerify = ({
   gettingChildren,
   task: { task, frequence, icon, points, is_skill, is_completed, id: taskId },
 }) => {
-  console.log(idParams);
-  console.log(taskId);
   const { authUser } = useAuth();
   const handleVerify = async () => {
     const payload = { id: taskId };
+
     await axios.patch(
       `${URL}children/${idParams}`,
       { current_points: points },
@@ -25,15 +24,12 @@ const TaskToVerify = ({
       }
     );
 
-    await axios.delete(
-      `${URL}children/${taskId}/tasks`,
-      { data: payload },
-      {
-        headers: {
-          Authorization: `Bearer ${authUser.token}`,
-        },
-      }
-    );
+    await axios.delete(`${URL}children/${taskId}/tasks`, {
+      headers: {
+        Authorization: `Bearer ${authUser.token}`,
+      },
+      data: payload,
+    });
     gettingChildren();
   };
   return (
