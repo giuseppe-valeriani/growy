@@ -11,7 +11,7 @@ const AddChildTask = ({
   setSelectedTask,
   addTask,
 }) => {
-  const { authUser } = useAuth;
+  const { authUser } = useAuth();
   const [tasks, setTasks] = useState(null);
 
   const handleClick = () => {

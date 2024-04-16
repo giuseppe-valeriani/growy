@@ -11,6 +11,7 @@ export function AuthProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const value = { authUser, setAuthUser, isLoggedIn, setIsLoggedIn };
+  console.log(authUser);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
