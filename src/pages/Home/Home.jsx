@@ -48,12 +48,6 @@ const Home = () => {
     }
   };
 
-  // useEffect(() => {
-  //   if (!authUser?.name || authUser?.name === "romolo") {
-  //     navigate("/child/1");
-  //   }
-  // }, []);
-
   return (
     <div className="home">
       <h1 className="home__hero">growy</h1>
