@@ -1,8 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../../../contexts/authContext";
 import "../Header/Header.scss";
 
 const HeaderChild = ({ setCurrentPage, name }) => {
+  const { setAuthUser, setIsLoggedIn } = useAuth();
+
+  const handleLogout = () => {
+    setAuthUser(null);
+    setIsLoggedIn(false);
+  };
+
   return (
     <header className="header">
       <nav className="nav">
@@ -17,7 +25,7 @@ const HeaderChild = ({ setCurrentPage, name }) => {
             goals
           </li>
           <li className="nav__item">
-            <NavLink className="nav__link" to="/">
+            <NavLink onClick={handleLogout} className="nav__link" to="/">
               logout
             </NavLink>
           </li>

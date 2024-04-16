@@ -35,7 +35,7 @@ const Home = () => {
     try {
       const response = await axios.post(`${URL}login`, {
         user: form.user.trim().toLowerCase(),
-        password: form.password.trim().toLowerCase(),
+        password: form.password.toLowerCase(),
       });
       setIsLoggedIn(true);
       setAuthUser({
