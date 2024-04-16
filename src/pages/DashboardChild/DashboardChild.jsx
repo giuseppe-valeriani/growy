@@ -3,8 +3,6 @@ import axios from "axios";
 import { useAuth } from "../../contexts/authContext";
 import { useParams } from "react-router-dom";
 import "./DashboardChild.scss";
-
-import HeaderChild from "../../components/Parent/HeaderChild/HeaderChild";
 import SingleChildTasks from "../../components/Parent/SingleChildTasks/SingleChildTasks";
 import SingleChildGoals from "../../components/Parent/SingleChildGoals/SingleChildGoals";
 
@@ -63,7 +61,6 @@ const DashboardChild = () => {
 
   return (
     <>
-      <HeaderChild name={currentHeader} setCurrentPage={setCurrentPage} />
       {currentPage === 0 && (
         <SingleChildTasks
           gettingChildren={gettingChildren}

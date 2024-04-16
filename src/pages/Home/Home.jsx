@@ -16,15 +16,19 @@ const Home = () => {
   const [form, setForm] = useState(startingForm);
   const navigate = useNavigate();
 
-  if (isLoggedIn) {
-    if (authUser.name === "romolo") {
-      navigate("/child/1");
-    } else if (authUser.name === "remo") {
-      navigate("/child/2");
-    } else if (authUser.name === "sara") {
-      navigate("/child/3");
-    } else navigate("/family");
-  }
+  useEffect(() => {
+    if (isLoggedIn) {
+      if (authUser.name === "romolo") {
+        navigate("/child/1");
+      } else if (authUser.name === "remo") {
+        navigate("/child/2");
+      } else if (authUser.name === "sara") {
+        navigate("/child/3");
+      } else if (authUser.name === "parent") {
+        navigate("/family");
+      } else navigate("/");
+    }
+  }, [isLoggedIn]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });

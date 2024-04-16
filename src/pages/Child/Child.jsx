@@ -12,7 +12,7 @@ import { useAuth } from "../../contexts/authContext";
 const URL = import.meta.env.VITE_API_URL;
 
 const Child = () => {
-  const { authUser } = useAuth();
+  const { authUser, setAuthUser, setIsLoggedIn } = useAuth();
   const [childState, setChildState] = useState(null);
   const [childProfile, setChildProfile] = useState(null);
 
@@ -37,6 +37,11 @@ const Child = () => {
     setChildProfile(response.data);
   };
 
+  const handleLogout = () => {
+    setAuthUser(null);
+    setIsLoggedIn(false);
+  };
+
   useEffect(() => {
     getChildInfo();
     getPersonalFile();
@@ -50,7 +55,7 @@ const Child = () => {
     <main className="child">
       <section className="child__nav">
         <ProfileKid name={childState[0].name} />
-        <Link to="/" className="child__logout">
+        <Link onClick={handleLogout} to="/" className="child__logout">
           <img className="child__logout-icon" src={logout} alt="logout" />
         </Link>
       </section>
