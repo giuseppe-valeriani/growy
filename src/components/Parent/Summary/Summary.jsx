@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../../../contexts/authContext";
 import axios from "axios";
-import "./Landing.scss";
+import "./Summary.scss";
 
 const URL = import.meta.env.VITE_API_URL;
 
-const Landing = () => {
+const Summary = () => {
   const { authUser } = useAuth();
   const [tasksDone, setTasksDone] = useState(null);
 
@@ -28,8 +28,8 @@ const Landing = () => {
 
   if (tasksDone.length === 0) {
     return (
-      <main className="landing">
-        <h1 className="landing__title">
+      <main className="summary">
+        <h1 className="summary__title">
           Nothing to report! Work in progress...
         </h1>
       </main>
@@ -38,10 +38,10 @@ const Landing = () => {
 
   if (tasksDone.length === 1) {
     return (
-      <main className="landing">
-        <h1 className="landing__title">
+      <main className="summary">
+        <h1 className="summary__title">
           Your kids are working hard! You have{" "}
-          <span className="landing__number">{tasksDone.length}</span> task to
+          <span className="summary__number">{tasksDone.length}</span> task to
           verify
         </h1>
       </main>
@@ -49,14 +49,14 @@ const Landing = () => {
   }
 
   return (
-    <main className="landing">
-      <h1 className="landing__title">
+    <main className="summary">
+      <h1 className="summary__title">
         Your kids are working hard! You have{" "}
-        <span className="landing__number">{tasksDone.length} </span>tasks to
+        <span className="summary__number">{tasksDone.length} </span>tasks to
         verify
       </h1>
     </main>
   );
 };
 
-export default Landing;
+export default Summary;
