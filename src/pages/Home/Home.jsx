@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useDebugValue } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/authContext";
 import axios from "axios";
@@ -14,6 +14,7 @@ const startingForm = {
 const Home = () => {
   const { isLoggedIn, setIsLoggedIn, authUser, setAuthUser } = useAuth();
   const [form, setForm] = useState(startingForm);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,24 +32,26 @@ const Home = () => {
   }, [isLoggedIn]);
 
   const handleChange = (e) => {
+    setError("");
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setError("");
       const response = await axios.post(`${URL}login`, {
         user: form.user.trim().toLowerCase(),
         password: form.password.toLowerCase(),
       });
       setIsLoggedIn(true);
       setAuthUser({
-        name: e.target.user.value,
+        name: form.user,
         token: response.data.accessToken,
       });
       setForm(startingForm);
     } catch (error) {
-      console.log(error);
+      setError("error");
     }
   };
 
@@ -77,7 +80,7 @@ const Home = () => {
             id="user"
             name="user"
             placeholder="user"
-            className="home__input"
+            className={`home__input${error && ` home__error`}`}
             onChange={handleChange}
           />
           <label htmlFor="password" className="home__label"></label>
@@ -86,7 +89,7 @@ const Home = () => {
             id="password"
             name="password"
             placeholder="password"
-            className="home__input"
+            className={`home__input${error && ` home__error`}`}
             onChange={handleChange}
           />
           <button className="home__button">Log In</button>

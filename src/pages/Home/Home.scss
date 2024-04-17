@@ -115,4 +115,8 @@
     box-shadow: 3px 3px 3px $shadow;
     cursor: pointer;
   }
+
+  &__error {
+    border: 3px solid $error;
+  }
 }
