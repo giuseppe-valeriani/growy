@@ -21,6 +21,15 @@
     justify-content: space-between;
   }
 
+  &__input {
+    border-radius: 0.5rem;
+    color: $warm;
+    font-style: italic;
+    text-align: center;
+    padding: 0.2rem;
+    box-shadow: 3px 3px 3px $shadow;
+  }
+
   &__skill {
     display: flex;
     gap: 1.5rem;
@@ -34,12 +43,19 @@
 
   &__numbers {
     width: 3rem;
+    border-radius: 0.5rem;
+    color: $warm;
+    font-style: italic;
+    text-align: center;
+    padding: 0.2rem;
+    box-shadow: 3px 3px 3px $shadow;
   }
 
   &__icon {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    cursor: pointer;
   }
 
   &__buttons {

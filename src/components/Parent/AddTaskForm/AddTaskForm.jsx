@@ -55,6 +55,7 @@ const AddTaskForm = ({ setOpenedForm, formSubmission }) => {
           name="task"
           id="task"
           value={newTask.task}
+          className="add-task-form__input"
           onChange={handleChange}
         />
       </div>
