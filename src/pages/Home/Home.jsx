@@ -54,28 +54,44 @@ const Home = () => {
 
   return (
     <div className="home">
-      <h1 className="home__hero">growy</h1>
-      <form className="home__form" onSubmit={handleSubmit}>
-        <label htmlFor="user" className="home__label"></label>
-        <input
-          type="text"
-          id="user"
-          name="user"
-          placeholder="user"
-          className="home__input"
-          onChange={handleChange}
-        />
-        <label htmlFor="password" className="home__label"></label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="password"
-          className="home__input"
-          onChange={handleChange}
-        />
-        <button className="home__button">Log In</button>
-      </form>
+      <div className="home__text-side">
+        <div className="home__title">
+          Chores made <span className="home__title--word">fun</span>, kids take
+          charge!
+        </div>
+        <p className="home__paragraph">
+          Growy is designed to empower diligent kids by making chores enjoyable
+          and rewarding. With easy chore tracking and progress monitoring,
+          children take ownership of their responsibilities while learning new
+          tasks. Encouraging good behavior and providing satisfaction through
+          achievement, we offer little treats along the way, making every task a
+          joyful adventure!
+        </p>
+      </div>
+      <div className="home__picture-side">
+        <h1 className="home__hero">growy</h1>
+        <form className="home__form" onSubmit={handleSubmit}>
+          <label htmlFor="user" className="home__label"></label>
+          <input
+            type="text"
+            id="user"
+            name="user"
+            placeholder="user"
+            className="home__input"
+            onChange={handleChange}
+          />
+          <label htmlFor="password" className="home__label"></label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="password"
+            className="home__input"
+            onChange={handleChange}
+          />
+          <button className="home__button">Log In</button>
+        </form>
+      </div>
     </div>
   );
 };
